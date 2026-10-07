@@ -1,0 +1,40 @@
+menu "I2S sine wave settings"
+
+    config SINE_SAMPLE_RATE
+        int "Sample rate (Hz)"
+        range 8000 192000
+        default 48000
+        help
+            I2S audio sample rate in samples per second.
+
+    config SINE_FREQUENCY
+        int "Sine wave frequency (Hz)"
+        range 20 20000
+        default 1000
+        help
+            Output sine wave frequency. It must be lower than half the sample rate.
+
+    config SINE_AMPLITUDE_PERCENT
+        int "Amplitude (% of full scale)"
+        range 1 100
+        default 15
+        help
+            Peak sample amplitude as a percentage of signed 16-bit full scale.
+            Start low to protect speakers and hearing.
+
+    config SINE_BCLK_GPIO
+        int "BCLK GPIO"
+        range 0 48
+        default 26
+
+    config SINE_WS_GPIO
+        int "WS/LRCLK GPIO"
+        range 0 48
+        default 25
+
+    config SINE_DOUT_GPIO
+        int "DOUT GPIO"
+        range 0 48
+        default 22
+
+endmenu
